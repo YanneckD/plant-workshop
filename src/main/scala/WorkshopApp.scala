@@ -221,7 +221,7 @@ object WorkshopApp {
         |  digitalWrite(PUMP_PIN, LOW);
         |
         |  // 4. Lange Pause machen
-        |  delay(5000);
+        |  delay(60000);
         |}""".stripMargin
 
     // Wir brauchen eine Referenz, um später den Code rauszuholen
@@ -271,10 +271,10 @@ object WorkshopApp {
         onClick --> { _ => 
            // Wir lesen den Code aus der Variable
            val code = currentCode.now()
-           if(code.contains("digitalWrite") && code.contains("delay")) {
-             dom.window.alert("✅ Code sieht gut aus!\n" + code.take(50) + "...")
+           if(code.contains("digitalWrite(PUMP_PIN, HIGH)") && code.contains("delay(1000)") && code.contains("digitalWrite(PUMP_PIN, LOW)") && code.contains("delay(60000)")) {
+             dom.window.alert("Code sieht gut aus!\n")
            } else {
-             dom.window.alert("⚠️ Hmm, da fehlen noch Befehle.")
+             dom.window.alert("Hmm, da fehlen noch Befehle.")
            }
         }
       )
