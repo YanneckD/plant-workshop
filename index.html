@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Arduino Workshop</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-arduino.min.js"></script>
+
+    <script type="module">
+      // Wir machen CodeJar global verfügbar für Scala.js
+      import { CodeJar } from 'https://medv.io/codejar/codejar.js';
+      window.CodeJar = CodeJar; 
+    </script>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="./target/scala-3.3.1/arduinoworkshop-fastopt/main.js"></script>
+</body>
+</html>
