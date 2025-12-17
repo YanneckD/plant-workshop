@@ -2,9 +2,9 @@ import com.raquo.laminar.api.L._
 import org.scalajs.dom
 import scala.scalajs.js
 import scala.scalajs.js.annotation._ // WICHTIG: Für @JSGlobal und @js.native
-import scala.scalajs.js.timers._     // Für setTimeout
+import scala.scalajs.js.timers._ 
 
-// --- JAVASCRIPT FACADES (Die Brücke zu CodeJar und Prism) ---
+//JAVASCRIPT FACADES
 @js.native
 @JSGlobal("CodeJar")
 class CodeJar(element: dom.Element, highlight: js.Function1[dom.Element, Unit]) extends js.Object {
@@ -29,9 +29,9 @@ object WorkshopApp {
   // Start-Daten: Die Bausteine für die Pumpe
   val allSnippets = List(
     CodeSnippet(1, "digitalWrite(PUMP_PIN, HIGH);"),
-    CodeSnippet(2, "delay(1000);"), // 1 Sekunde warten
+    CodeSnippet(2, "delay(1000);"),
     CodeSnippet(3, "digitalWrite(PUMP_PIN, LOW);"),
-    CodeSnippet(4, "delay(60000);")  // 60 Sekunden Pause
+    CodeSnippet(4, "delay(60000);") 
   )
 
   val sourceSnippets: Var[List[CodeSnippet]] = Var(allSnippets)
@@ -232,9 +232,9 @@ object WorkshopApp {
     div(
       h4("Schreibe den Code (Arduino C++):"),
       
-      // DER EDITOR CONTAINER
+      //  EDITOR CONTAINER
       div(
-        className := "editor-container language-cpp", // language-cpp sagt Prism: Färbe das als C++
+        className := "editor-container language-cpp", 
         
         // Wenn das Element in den Browser eingefügt wird -> Starte CodeJar
         onMountUnmountCallback(
@@ -269,7 +269,7 @@ object WorkshopApp {
         "Code Simulieren & Prüfen", 
         className := "btn-check", 
         onClick --> { _ => 
-           // Wir lesen den Code aus der Variable
+           // Code aus der Variable lesen
            val code = currentCode.now()
            if(code.contains("digitalWrite(PUMP_PIN, HIGH)") && code.contains("delay(1000)") && code.contains("digitalWrite(PUMP_PIN, LOW)") && code.contains("delay(60000)")) {
              dom.window.alert("Code sieht gut aus!\n")
